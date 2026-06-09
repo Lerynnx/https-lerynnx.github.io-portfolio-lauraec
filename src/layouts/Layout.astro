@@ -1,23 +1,49 @@
+---
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Laura Portfolio</title>
 	</head>
 	<body>
+		<Header />
 		<slot />
 	</body>
 </html>
 
 <style>
-	html,
+
+	@font-face {
+		font-family: 'Quicksand-Regular';
+		src: url('/fonts/Quicksand-Regular.ttf') format('truetype');
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: 'Quicksand-semiBold';
+		src: url('/fonts/Quicksand-SemiBold.ttf') format('truetype');
+		font-weight: 600;
+		font-style: normal;
+	}
+
+	root: {
+		color-scheme: light dark;
+	}
+
+	html {
+		font-family: 'Quicksand-Regular';
+	}
+
+
 	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+		display : flex;
+		justify-content: center;
 	}
 </style>

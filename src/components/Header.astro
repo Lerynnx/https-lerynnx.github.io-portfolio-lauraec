@@ -1,0 +1,29 @@
+---
+import logo from '../assets/logo.webp';
+---
+
+<header class="flex justify-between items-center p-4 bg-white shadow-md w-full max-w-4xl mx-auto border-b border-gray-200 rounded-xl mt-4">
+    <div class="flex items-center gap-2">
+        <img src={logo.src} alt="Laura logo" class="h-8" />
+    </div>
+    <nav>
+        <ul class="flex gap-4">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<style>
+    nav a {
+        text-decoration: none;
+        font-family: 'Quicksand-semiBold';
+    }
+
+    nav a:hover {
+        color: #3b82f6;
+        transition: color 0.4s ease-in-out;
+    }
+</style>
