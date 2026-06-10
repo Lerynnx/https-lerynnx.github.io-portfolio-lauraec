@@ -11,16 +11,14 @@ import '../styles/global.css';
 		<link rel="icon" href="/portfolio-lauraec/favicon.ico" />
 		<title>Laura Portfolio</title>
 	</head>
-	<body class="flex flex-col items-center">
-		<!--TODO For Dark mode: <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div> -->
-		<div class="absolute inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)]"></div>
+	<body class="flex flex-col items-center dark:bg-gray-900 dark:text-white">
+		<div class="absolute inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] dark:bg-gray-900 dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
 		<Header />
 		<slot />
 	</body>
 </html>
 
 <style>
-
 	@font-face {
 		font-family: 'Quicksand-Variable';
 		src: url('/fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
@@ -34,7 +32,6 @@ import '../styles/global.css';
 		font-family: 'Quicksand-Variable';
 		font-weight: 400;
 	}
-
 
 	body {
 		display: flex;

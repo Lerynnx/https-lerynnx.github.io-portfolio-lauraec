@@ -1,1 +1,35 @@
 @import "tailwindcss";
+
+/* Base dark mode styles */
+.dark {
+	--bg-color: #1a202c;
+	--text-color: #f7fafc;
+	--bg-secondary: #2d3748;
+	--card-bg: #374151;
+	--accent-color: #7a42e1;
+}
+
+.dark body {
+	background-color: var(--bg-color);
+	color: var(--text-color);
+}
+
+.dark a {
+	color: var(--text-color);
+	background-color: #333;
+}
+
+.dark a:hover {
+	color: var(--accent-color);
+	background-color: #444;
+}
+
+/* Header dark mode styles */
+.dark header {
+	background-color: var(--bg-color);
+	border-color: var(--bg-secondary);
+}
+
+.dark header a {
+	color: var(--text-color);
+}
