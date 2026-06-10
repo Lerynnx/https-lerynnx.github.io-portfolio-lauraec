@@ -12,7 +12,7 @@ import '../styles/global.css';
 		<title>Laura Portfolio</title>
 	</head>
 	<body class="flex flex-col items-center dark:bg-gray-900 dark:text-white">
-		<div class="absolute inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] dark:bg-gray-900 dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+		<div class="absolute inset-0 -z-10 min-h-full w-full [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
 		<Header />
 		<slot />
 	</body>
@@ -24,8 +24,12 @@ import '../styles/global.css';
 		src: url('/fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
 	}
 
-	root: {
+	:root {
 		color-scheme: light dark;
+	}
+
+	html, body {
+		min-height: 100vh;
 	}
 
 	html {
@@ -37,5 +41,7 @@ import '../styles/global.css';
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		position: relative;
+		background-color: var(--bg-color);
 	}
 </style>
