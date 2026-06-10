@@ -1,5 +1,7 @@
 ---
 import logo from '../assets/logo.webp';
+import sunIcon from '../assets/sun.svg';
+import moonIcon from '../assets/moon.svg';
 ---
 
 <header class="flex justify-between items-center p-4 bg-white shadow-md w-full max-w-4xl mx-auto border-b border-gray-200 rounded-xl mt-4">
@@ -7,24 +9,34 @@ import logo from '../assets/logo.webp';
         <img src={logo.src} alt="Laura logo" class="h-8" />
     </div>
     <nav>
-        <ul class="flex gap-4">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/projects">Projects</a></li>
-            <li><a href="/contact">Contact</a></li>
+        <ul class="flex gap-2">
+            <li><a href="/portfolio-lauraec/">Home</a></li>
+            <li><a href="/portfolio-lauraec/about">About</a></li>
+            <li><a href="/portfolio-lauraec/projects">Projects</a></li>
+            <li><a href="/portfolio-lauraec/contact">Contact</a></li>
+            <button id="dark-mode-toggle" class="relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none bg-gray-200">
+                <span class="sr-only">Toggle dark mode</span>
+                <span aria-hidden="true" class="inline-block w-4 h-4 transform bg-white rounded-full shadow-md transition-transform duration-300 ease-in-out translate-x-1">
+                    <img src={sunIcon.src} alt="Sun" class="w-4 h-4 hidden dark:block" />
+                    <img src={moonIcon.src} alt="Moon" class="w-4 h-4 dark:hidden" />
+                </span>
+            </button>
         </ul>
     </nav>
 </header>
 
 <style>
-    nav a {
+    a {
         text-decoration: none;
         font-family: 'Quicksand-Variable';
         font-weight: 500;
+        padding: 0.5rem 0.75rem;
+        border-radius: 9999px;
+        transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
     }
 
-    nav a:hover {
-        color: #3b82f6;
-        transition: color 0.4s ease-in-out;
+    a:hover {
+        color: #166efa;
+        background-color: #f3f4f6;
     }
 </style>
