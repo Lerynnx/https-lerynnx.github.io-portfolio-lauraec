@@ -11,10 +11,13 @@ import '../styles/global.css';
 		<link rel="icon" href="/portfolio-lauraec/favicon.ico" />
 		<title>Laura Portfolio</title>
 	</head>
-	<body class="flex flex-col items-center dark:bg-gray-900 dark:text-white">
+	<body class="min-h-screen flex flex-col items-center dark:bg-gray-900 dark:text-white  ">
 		<div class="absolute inset-0 -z-10 min-h-full w-full [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
 		<Header />
 		<slot />
+		<footer class="w-full text-center text-sm">
+			Made with ❤️ by LauraEC.
+		</footer>
 	</body>
 </html>
 
@@ -30,6 +33,7 @@ import '../styles/global.css';
 
 	html, body {
 		min-height: 100vh;
+		margin: 0;
 	}
 
 	html {
