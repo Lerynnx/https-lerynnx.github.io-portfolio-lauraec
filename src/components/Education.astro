@@ -1,0 +1,47 @@
+---
+import EducationItem from './EducationItem.astro';
+
+const EDUCATION = [
+  {
+    date: 'Sep 2022 — Jun 2026',
+    title: 'Computer Science',
+    company: 'Universidad Europea Miguel de Cervantes',
+    location: 'Spain',
+    type: 'Degree',
+    description: 'Cybersecurity branch and Secure Software Development Lifecycle (SSDLC) specialization',
+    average: 'Average grade: 8.88/10',
+    awards: [
+      'Academic excellence in Web Development II — PHP and Symfony (9.4)',
+      'Academic excellence in System\'s Defense (9.5)',
+      'Honors Roll in Data Structures (9.7)',
+      'Honors Roll in Computer Legislation (9.4)'
+    ]
+  },
+  {
+    date: 'Sep 2020 — Jun 2022',
+    title: 'Higher Education Vocational Training Cycle',
+    company: 'Miteris (formerly Everis)',
+    location: 'Spain',
+    type: 'Vocational Training',
+    description: 'Development of Multiplatform Applications (DMA)',
+    average: 'Average grade: 9.23/10',
+    awards: []
+  }
+];
+---
+
+<section class="w-full min-h-screen py-16 px-5 max-w-4xl mx-auto flex flex-col gap-10">
+    <div id="education" class="anchor p-10"></div>
+    <div class="flex flex-col gap-3">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">Education</h2>
+        <div class="w-16 h-1.5 bg-indigo-600 rounded-full"></div>
+    </div>
+
+    <ol class="relative border-s-2 border-gray-500 dark:border-gray-600 ml-3 md:ml-4 mt-6">
+        {
+        EDUCATION.map((item) => (
+            <EducationItem item={item} />
+        ))
+        }
+    </ol>
+</section>

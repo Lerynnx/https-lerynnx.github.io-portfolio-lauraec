@@ -1,0 +1,52 @@
+---
+const { item } = Astro.props;
+
+// Define the shape of the item
+type EducationItem = {
+    date: string;
+    title: string;
+    company: string;
+    location: string;
+    type: string;
+    description: string;
+    average: string;
+    awards: string[];
+};
+---
+
+<li class="mb-14 ms-8">
+    <span class="absolute flex items-center justify-center w-4 h-4 bg-indigo-100 rounded-full -inset-s-2.25 ring-4 ring-white dark:ring-gray-950 dark:bg-indigo-900 mt-2.5">
+        <div class="w-2 h-2 bg-indigo-600 rounded-full dark:bg-indigo-400"></div>
+    </span>
+
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2 gap-2">
+        <h3 class="text-3xl font-bold text-gray-900 dark:text-white tracking-tight">
+            {item.title}
+        </h3>
+        <time class="text-sm font-medium px-3 py-1 bg-indigo-400 dark:bg-gray-800 opacity-75 text-gray-50 dark:text-gray-200 rounded-full w-fit">
+            {item.date}
+        </time>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-5 font-semibold text-indigo-50 dark:text-indigo-200">
+        <span class="flex items-center gap-1.5 font-bold bg-indigo-400 dark:bg-indigo-900 px-2 py-1 rounded-full">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            {item.company}
+        </span>
+        <span class="hidden sm:inline text-gray-600 dark:text-gray-600">•</span>
+        <span class="text-gray-800 dark:text-gray-400">{item.location}</span>
+        <span class="hidden sm:inline text-gray-600 dark:text-gray-600">•</span>
+        <span class="text-gray-800 dark:text-gray-400 italic">{item.type}</span>
+    </div>
+    <p class="text-base font-normal text-gray-800 dark:text-gray-200 mb-2.5">{item.description}</p>
+    <p class="text-base font-normal text-gray-800 dark:text-gray-200 mb-2.5">{item.average}</p>
+    {item.awards.length > 0 && (
+        <ul class="text-base font-normal text-gray-800 dark:text-gray-200 space-y-2.5 list-disc list-outside ml-4 marker:text-gray-800 dark:marker:text-gray-100">
+            {item.awards.map((award: string) => (
+                <li class="leading-relaxed">{award}</li>
+            ))}
+        </ul>
+    )}
+</li>
