@@ -1,0 +1,46 @@
+---
+import ProjectItem from './ProjectItem.astro';
+
+const PROJECTS = [
+  {
+    img: '../assets/projects/lpay.webp',
+    date: 'Nov 2025 — Jan 2026',
+    title: 'LPay - Live Payment Flow System',
+    company: 'Xeridia',
+    description: 'Distributed payment flow system that processes and validates real-time transactions with high availability. The solution ensures seamless user communication and reliable transaction handling across distributed environments.',
+    repository: 'https://github.com/xeridia/lpay'
+  },
+  {
+    img: '../assets/projects/myhome.webp',
+    date: 'Apr 2022 — Jun 2022',
+    title: 'My Home - E-commerce Platform',
+    company: 'Serbatic',
+    description: 'Full-featured e-commerce platform with multi-role access (employee, customer, admin, guest). The application streamlined core business operations, including purchases, inventory management, invoicing, and payroll, enabling efficient day-to-day operations for the business.',
+    repository: 'https://github.com/serbatic/myhome'
+  },
+  {
+    img: '../assets/projects/evspain.webp',
+    date: 'May 2025 — Jun 2025',
+    title: 'Evspain - E-commerce Platform',
+    company: 'Personal Project',
+    description: 'Web application with end-to-end functionality, including structured user flows, form-driven interactions, server-side validation, and persistent data management. The project showcases the development of real-world application behavior, enabling users to create, view, and manage information through a coherent interface and backend logic.',
+    repository: 'https://github.com/evspain/evspain'
+  }
+];
+---
+
+<section class="w-full min-h-screen py-16 px-5 max-w-4xl mx-auto flex flex-col gap-10">
+    <div id="projects" class="anchor p-10"></div>
+    <div class="flex flex-col gap-3">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">Projects</h2>
+        <div class="w-16 h-1.5 bg-indigo-600 rounded-full"></div>
+    </div>
+
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+        PROJECTS.map((item) => (
+            <ProjectItem item={item} />
+        ))
+        }
+    </ul>
+</section>
