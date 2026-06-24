@@ -12,42 +12,57 @@ import "../styles/global.css";
     <title>Laura Portfolio</title>
   </head>
   <body
-    class="min-h-screen flex flex-col items-center dark:bg-gray-900 dark:text-white"
-  >
-    <div class="absolute inset-0 -z-10 min-h-full w-full overflow-hidden">
-      <div
-        class="absolute inset-0
-    bg-[radial-gradient(125%_125%_at_50%_50%,#fff_35%,#a78bfa_70%,#6d28d9_100%)]
-    dark:bg-[radial-gradient(125%_125%_at_50%_50%,#000_35%,#1a0844_70%,#6633ee_100%)]"
-      >
-      </div>
-      <div
-        class="absolute inset-[-40%] w-[180%] h-[180%] animate-aurora-1
-    bg-[radial-gradient(ellipse_80%_60%_at_20%_50%,#c084fc40_0%,transparent_70%),radial-gradient(ellipse_60%_80%_at_80%_20%,#818cf840_0%,transparent_70%)]
-    dark:bg-[radial-gradient(ellipse_80%_60%_at_20%_50%,#6633ee55_0%,transparent_70%),radial-gradient(ellipse_60%_80%_at_80%_20%,#4488ff44_0%,transparent_70%)]"
-      >
-      </div>
-      <div
-        class="absolute inset-[-40%] w-[180%] h-[180%] animate-aurora-2
-    bg-[radial-gradient(ellipse_70%_50%_at_70%_80%,#a855f740_0%,transparent_60%),radial-gradient(ellipse_50%_70%_at_30%_30%,#6366f133_0%,transparent_65%)]
-    dark:bg-[radial-gradient(ellipse_70%_50%_at_70%_80%,#9922cc44_0%,transparent_60%),radial-gradient(ellipse_50%_70%_at_30%_30%,#2266ee33_0%,transparent_65%)]"
-      >
-      </div>
-      <div
-        class="absolute inset-[-40%] w-[180%] h-[180%] animate-aurora-3
-    bg-[radial-gradient(ellipse_90%_40%_at_50%_50%,#c084fc30_0%,transparent_55%)]
-    dark:bg-[radial-gradient(ellipse_90%_40%_at_50%_50%,#aa33ff33_0%,transparent_55%)]"
-      >
-      </div>
+  class="min-h-screen flex flex-col items-center dark:bg-gray-900 dark:text-white"
+>
+  <div class="absolute inset-0 -z-10 min-h-full w-full overflow-hidden">
+    <div
+      class="absolute inset-0
+  bg-[radial-gradient(125%_125%_at_50%_50%,#fff_35%,#a78bfa_70%,#6d28d9_100%)]
+  dark:bg-[radial-gradient(125%_125%_at_50%_50%,#000_35%,#1a0844_70%,#6633ee_100%)]"
+    >
     </div>
-    <Header />
-    <div>
-      <main class="md:mt-0 mt-40">
-        <slot />
-      </main>
+
+    <div
+      class="absolute inset-[-40%] w-[180%] h-[180%] animate-aurora-1"
+      style="
+        background: radial-gradient(ellipse 80% 60% at 20% 50%, #4b3ebe40 0%, transparent 70%),
+                    radial-gradient(ellipse 60% 80% at 80% 20%, #6e4dff40 0%, transparent 70%);
+        -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 75%);
+        mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 75%);
+      "
+    >
     </div>
-    <footer class="w-full text-center text-sm mb-5">Made with ❤️ by LauraEC.</footer>
-  </body>
+
+    <div
+      class="absolute inset-[-40%] w-[180%] h-[180%] animate-aurora-2"
+      style="
+        background: radial-gradient(ellipse 70% 50% at 70% 80%, #8055f740 0%, transparent 60%),
+                    radial-gradient(ellipse 50% 70% at 30% 30%, #6366f133 0%, transparent 65%);
+        -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 75%);
+        mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 75%);
+      "
+    >
+    </div>
+
+    <div
+      class="absolute inset-[-40%] w-[180%] h-[180%] animate-aurora-3"
+      style="
+        background: radial-gradient(ellipse 90% 40% at 50% 50%, #c084fc30 0%, transparent 55%);
+        -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 75%);
+        mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 75%);
+      "
+    >
+    </div>
+  </div>
+
+  <Header />
+  <div id="presentation">
+    <main class="md:mt-0 mt-40">
+      <slot />
+    </main>
+  </div>
+  <footer class="w-full text-center text-sm mb-5">Made with ❤️ by LauraEC.</footer>
+</body>
 </html>
 
 <style>
