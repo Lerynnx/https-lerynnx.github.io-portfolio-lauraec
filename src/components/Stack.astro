@@ -1,0 +1,90 @@
+---
+import StackItem from './StackItem.astro';
+
+const STACK = {
+  "Backend": [
+    "Java 21",
+    "Spring Boot",
+    "Hibernate",
+    "Maven",
+    "PHP",
+    "Symfony",
+    "Doctrine",
+    "Python",
+    "C",
+    "RabbitMQ",
+    "REST APIs",
+  ],
+  "Frontend": [
+    "HTML/CSS/JS",
+    "TypeScript",
+    "React",
+    "Vite",
+    "Astro",
+    "Tailwind",
+    "Bootstrap",
+    "Thymeleaf",
+    "Twig",
+  ],
+  "DevOps & Testing": [
+    "Docker",
+    "Jenkins",
+    "Git",
+    "Postman",
+    "K6",
+    "Tomcat",
+    "Odoo",
+    "Ngrok",
+    "XAMPP",
+  ],
+  "Observability": [
+    "Elasticsearch",
+    "Kibana",
+    "Logstash",
+    "Filebeat",
+    "Grafana",
+    "Loki",
+    "Prometheus",
+  ],
+  "Systems": [
+    "Linux",
+    "Windows Server",
+    "VMware",
+    "ESXi",
+    "VirtualBox",
+    "TrueNAS",
+  ],
+  "BBDD": [
+    "SQL",
+    "MariaDB",
+    "SQLite",
+  ],
+  "Security": [
+    "Wireshark",
+    "BurpSuite",
+    "Metasploit",
+    "Nmap",
+  ],
+};
+---
+
+<section class="w-full min-h-screen py-16 px-5 max-w-4xl mx-auto flex flex-col gap-10">
+  <div id="stack" class="anchor p-10"></div>
+    <div class="flex flex-col gap-3">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">My stack</h2>
+        <div class="w-16 h-1.5 bg-indigo-600 rounded-full"></div>
+    </div>
+
+  {Object.entries(STACK).map(([category, items]) => (
+    <div class="w-full">
+      <p class="text-2xl font-medium uppercase tracking-widest text-indigo-500 dark:text-indigo-400 mb-3 pl-0.5">
+        {category}
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+        {items.map((item) => (
+          <StackItem name={item} />
+        ))}
+      </div>
+    </div>
+  ))}
+</section>

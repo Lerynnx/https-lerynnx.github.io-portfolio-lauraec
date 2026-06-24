@@ -1,0 +1,15 @@
+---
+const { name } = Astro.props;
+
+type StackItem = {
+  name: string;
+};
+---
+
+<div class="stack-card group relative overflow-hidden flex flex-col items-center justify-center gap-2.5 p-4 rounded-xl border border-indigo-800/30 bg-white dark:bg-gray-900 transition-all duration-200 hover:-translate-y-0.5  hover:border-indigo-500/60 cursor-default opacity-85">
+  <span class="dot absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-indigo-600 dark:bg-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+  <span class="text font-medium text-center text-gray-800 dark:text-gray-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-200 leading-tight">
+    {name}
+  </span>
+  <div class="absolute inset-0 bg-linear-to-br from-indigo-70/80 to-transparent dark:from-indigo-800/20 dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none rounded-xl"></div>
+</div>
