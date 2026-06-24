@@ -62,8 +62,18 @@ import Image from 'astro/components/Image.astro';
     const toggle = document.getElementById('menu-toggle');
     const menu = document.getElementById('mobile-menu');
 
+    // Toggle menu on button click
     toggle?.addEventListener('click', () => {
         toggle?.classList.toggle('active');
         menu?.classList.toggle('hidden');
+    });
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (menu) {
+                menu.classList.add('hidden');
+            }
+        });
     });
 </script>
