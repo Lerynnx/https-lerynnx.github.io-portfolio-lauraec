@@ -1,28 +1,116 @@
 ---
+import Image from 'astro/components/Image.astro';
+
 const { item } = Astro.props;
 
-// Define the shape of the item
 type ProjectItem = {
-  img: string;
+  img: any[];
   date: string;
   title: string;
   company: string;
   description: string;
   repository: string;
 };
+
+const slideshowId = `slideshow-${Math.random().toString(36).slice(2, 9)}`;
 ---
-<li class="flex flex-col gap-4 bg-purple-50 dark:bg-indigo-950 p-4 rounded-lg shadow-md transition-transform duration-300 opacity-95">
-  <div class="relative w-full h-64 md:h-48 lg:h-64 rounded-lg overflow-hidden shadow-lg">
-    <img src={item.img} alt={item.title} class="w-full h-full object-cover" />
-    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-      <a href={item.repository} target="_blank" rel="noopener noreferrer" class="text-white text-lg font-semibold px-4 py-2 bg-indigo-600 rounded hover:bg-indigo-700 transition-colors duration-300">
-        View Repository 
-      </a>
+
+<li class="project-card flex flex-col bg-white dark:bg-indigo-950 rounded-xl shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl border border-gray-100 dark:border-indigo-900 opacity-90">
+
+  <a
+    href={item.repository}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="relative block w-full overflow-hidden group"
+    style="height: 220px;"
+  >
+    <div
+      id={slideshowId}
+      class="flex h-full transition-transform duration-700 ease-in-out"
+      style="width: 100%;"
+      data-total={item.img.length}
+    >
+      {item.img.map((image: any, index: number) => (
+        <div class="shrink-0 w-full h-full">
+          <Image
+            src={image}
+            alt={`${item.title} - ${index + 1}`}
+            class="w-full h-full object-cover object-center"
+            style="display: block;"
+          />
+        </div>
+      ))}
     </div>
-  </div>
-  <div class="flex flex-col gap-2">
-    <p class="text-sm text-indigo-900 dark:text-gray-400">{item.date}</p>
-    <h3 class="text-xl font-bold text-gray-900 dark:text-white">{item.title}</h3>
-    <p class="text-gray-800 dark:text-gray-300">{item.description}</p>
+
+    <div class="absolute inset-0  bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
+      <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-semibold px-4 py-2 bg-indigo-600 rounded-full shadow-lg">
+        View Repository →
+      </span>
+    </div>
+
+    {item.img.length > 1 && (
+      <div class="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5 z-10 pointer-events-none">
+        {item.img.map((_: any, i: number) => (
+          <span
+            class="dot w-1.5 h-1.5 rounded-full bg-white transition-opacity duration-300"
+            data-slideshow={slideshowId}
+            data-index={i}
+            style={i === 0 ? "opacity: 1;" : "opacity: 0.4;"}
+          />
+        ))}
+      </div>
+    )}
+  </a>
+
+  <div class="flex flex-col gap-2 p-5">
+    <div class="flex items-center justify-between gap-2">
+      <span class="text-xs font-medium text-indigo-700 dark:text-indigo-300 uppercase tracking-wide">{item.company}</span>
+      <span class="text-xs text-gray-600 dark:text-gray-300">{item.date}</span>
+    </div>
+    <h3 class="text-lg font-bold text-gray-900 dark:text-white leading-snug">{item.title}</h3>
+    <p class=" text-gray-800 dark:text-gray-100 leading-relaxed">{item.description}</p>
   </div>
 </li>
+
+<script>
+  function initSlideshows() {
+    // Find all slideshows by their id pattern
+    document.querySelectorAll('[id^="slideshow-"]').forEach((el) => {
+      const slideshow = el as HTMLElement;
+      const id = slideshow.id;
+      const totalAttr = slideshow.getAttribute('data-total');
+      const total = totalAttr ? parseInt(totalAttr, 10) : 0;
+
+      if (total <= 1) return;
+
+      // Avoid double-initializing
+      if (slideshow.dataset.initialized === 'true') return;
+      slideshow.dataset.initialized = 'true';
+
+      let current = 0;
+
+      const dots = document.querySelectorAll<HTMLElement>(`.dot[data-slideshow="${id}"]`);
+
+      function goTo(index: number) {
+        current = index;
+        // Width of the visible container
+        const containerWidth = slideshow.parentElement?.clientWidth ?? slideshow.clientWidth;
+        slideshow.style.transform = `translateX(-${current * containerWidth}px)`;
+
+        dots.forEach((dot, i) => {
+          dot.style.opacity = i === current ? '1' : '0.4';
+        });
+      }
+
+      setInterval(() => {
+        goTo((current + 1) % total);
+      }, 3500);
+    });
+  }
+
+  // Run on first page load
+  document.addEventListener('DOMContentLoaded', initSlideshows);
+
+  // Run after Astro view transitions
+  document.addEventListener('astro:page-load', initSlideshows);
+</script>

@@ -1,9 +1,23 @@
 ---
 import ProjectItem from './ProjectItem.astro';
+import Image from 'astro/components/Image.astro';
+
+// Import images
+import lpay1 from '../assets/projects/lpay1.webp';
+import lpay2 from '../assets/projects/lpay2.webp';
+import lpay3 from '../assets/projects/lpay3.webp';
+
+import myhome1 from '../assets/projects/myhome1.webp';
+import myhome2 from '../assets/projects/myhome2.webp';
+import myhome3 from '../assets/projects/myhome3.webp';
+
+import evspain1 from '../assets/projects/evspain1.webp';
+import evspain2 from '../assets/projects/evspain2.webp';
+import evspain3 from '../assets/projects/evspain3.webp';
 
 const PROJECTS = [
   {
-    img: '../assets/projects/lpay.webp',
+    img: [lpay1, lpay2, lpay3],
     date: 'Nov 2025 — Jan 2026',
     title: 'LPay - Live Payment Flow System',
     company: 'Xeridia',
@@ -11,7 +25,7 @@ const PROJECTS = [
     repository: 'https://github.com/xeridia/lpay'
   },
   {
-    img: '../assets/projects/myhome.webp',
+    img: [myhome1, myhome2, myhome3],
     date: 'Apr 2022 — Jun 2022',
     title: 'My Home - E-commerce Platform',
     company: 'Serbatic',
@@ -19,7 +33,7 @@ const PROJECTS = [
     repository: 'https://github.com/serbatic/myhome'
   },
   {
-    img: '../assets/projects/evspain.webp',
+    img: [evspain1, evspain2, evspain3],
     date: 'May 2025 — Jun 2025',
     title: 'Evspain - E-commerce Platform',
     company: 'Personal Project',
